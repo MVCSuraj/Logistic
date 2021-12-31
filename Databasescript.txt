@@ -1,0 +1,69 @@
+USE [ABC_DB]
+GO
+/****** Object:  Table [dbo].[__EFMigrationsHistory]    Script Date: 31-12-2021 11:16:40 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[__EFMigrationsHistory](
+	[MigrationId] [nvarchar](150) NOT NULL,
+	[ProductVersion] [nvarchar](32) NOT NULL,
+ CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY CLUSTERED 
+(
+	[MigrationId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[shipments]    Script Date: 31-12-2021 11:16:41 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[shipments](
+	[senderid] [int] IDENTITY(1,1) NOT NULL,
+	[sendername] [nvarchar](max) NOT NULL,
+	[recipientAdd] [nvarchar](max) NULL,
+	[Decription] [nvarchar](max) NULL,
+	[ShipType] [nvarchar](max) NULL,
+	[Expedited] [bit] NOT NULL,
+ CONSTRAINT [PK_shipments] PRIMARY KEY CLUSTERED 
+(
+	[senderid] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[User_Authenticaitons]    Script Date: 31-12-2021 11:16:41 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[User_Authenticaitons](
+	[username] [nvarchar](max) NULL,
+	[password] [nvarchar](max) NULL,
+	[role] [nvarchar](max) NULL,
+	[isactive] [bit] NOT NULL,
+	[user_id] [int] IDENTITY(1,1) NOT NULL,
+ CONSTRAINT [PK_User_Authenticaitons] PRIMARY KEY CLUSTERED 
+(
+	[user_id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+INSERT [dbo].[__EFMigrationsHistory] ([MigrationId], [ProductVersion]) VALUES (N'20211229110152_initialmigration1', N'3.1.22')
+GO
+INSERT [dbo].[__EFMigrationsHistory] ([MigrationId], [ProductVersion]) VALUES (N'20211229111015_initialmigrationnew', N'3.1.22')
+GO
+INSERT [dbo].[__EFMigrationsHistory] ([MigrationId], [ProductVersion]) VALUES (N'20211229112619_addshipmenttable', N'3.1.22')
+GO
+SET IDENTITY_INSERT [dbo].[shipments] ON 
+GO
+INSERT [dbo].[shipments] ([senderid], [sendername], [recipientAdd], [Decription], [ShipType], [Expedited]) VALUES (4, N'Dheeraj Kumar Sah', N'Raniganj', N'Hi', N'Volume LTL', 0)
+GO
+SET IDENTITY_INSERT [dbo].[shipments] OFF
+GO
+SET IDENTITY_INSERT [dbo].[User_Authenticaitons] ON 
+GO
+INSERT [dbo].[User_Authenticaitons] ([username], [password], [role], [isactive], [user_id]) VALUES (N'Suraj ', N'123456', N'Admin', 1, 1)
+GO
+SET IDENTITY_INSERT [dbo].[User_Authenticaitons] OFF
+GO

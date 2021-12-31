@@ -1,0 +1,31 @@
+
+
+
+Create Project With .Net Core 3.1 with Razor Page
+
+1.Creating Project
+
+2.Creating Model(Context) Folder and Adding User_Authenticatio and shipment Model in It
+
+3.Installing Package for Entity Framework Core from NuGet
+
+		a.Microsoft.EntityFrameworkCore.SqlServer
+		b.First thing for saving data in database, we need an ORM. We are going to use “Entity framework core”.
+
+4.Adding Connection String and Setting up DbContext
+		
+		a.After adding a reference, now add a connection string in appsetting.json file.
+		b.Now, let’s add a class with the name DatabaseContext in Models folder.
+		c.Now, let's add DbSet for Tables model in ABC_DbContext  class
+
+
+5.Add Table in Database with migration
+
+6.I have use SQL Server 2019
+
+7.You have login with any creadtinal i have just create a interface for login
+
+8.After login you have Redirect to Dashboard where you can see the Shipement Create Section and list 
+
+9.from you can edit and delete the record
+
